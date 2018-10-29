@@ -119,6 +119,8 @@ public class MyApplication extends Application{
         Log.d(TAG,"MyApplication->Oncreate");
         myApplication = this;
         mCityDB = openCityDB();
+
+//        初始化城市信息列表
         initCityList();
     }
     private void initCityList(){
@@ -148,6 +150,8 @@ public class MyApplication extends Application{
     public static  MyApplication getMyApplication(){
         return myApplication;
     }
+
+//    创建打开数据库的方法
     private CityDB openCityDB() {
         String path = "/data"
                 + Environment.getDataDirectory().getAbsolutePath

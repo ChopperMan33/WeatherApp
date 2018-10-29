@@ -38,7 +38,7 @@ public  class SelectCity extends AppCompatActivity implements View.OnClickListen
         mBackBtn = (ImageView) findViewById(R.id.title_back);
         mBackBtn.setOnClickListener(this);
 
-       //String[] listdata={"1","2","3"};
+        //String[] listdata={"1","2","3"};
         mApplication = (MyApplication) getApplication();
         mCityList = mApplication.getCityList();
         mArrayList = new ArrayList<String>();
@@ -47,7 +47,7 @@ public  class SelectCity extends AppCompatActivity implements View.OnClickListen
             mArrayList.add(cityName);
         }
         citylist = (ListView) findViewById(R.id.title_list);
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(SelectCity.this, android.R.layout.simple_list_item_1,  mArrayList );
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(SelectCity.this, android.R.layout.simple_list_item_1, mArrayList);
         citylist.setAdapter(adapter);
 
         //添加ListView项的点击事件的动作
@@ -63,12 +63,14 @@ public  class SelectCity extends AppCompatActivity implements View.OnClickListen
         citylist.setOnItemClickListener(itemClickListener);
 
     }
+
+    //    返回主界面时，传递城市代码数据
     @Override
-    public void onClick(View v){
-        switch(v.getId()){
+    public void onClick(View v) {
+        switch (v.getId()) {
             case R.id.title_back:
                 Intent i = new Intent();
-                i.putExtra("cityCode",Integer.toString(updateCityCode));//"101160101" "101160101"
+                i.putExtra("cityCode", Integer.toString(updateCityCode));//"101160101" "101160101"
                 setResult(RESULT_OK, i);
                 finish();
                 break;
@@ -76,19 +78,6 @@ public  class SelectCity extends AppCompatActivity implements View.OnClickListen
                 break;
         }
     }
-
-//    @Override
-//    public void onClick(View v) {
-//        switch (v.getId()) {
-//            case R.id.title_back:
-//                Intent intent = new Intent(this,MainActivity.class);
-//                intent.putExtra("cityCode","101010100");//updateCityCode
-//                startActivity(intent);
-//             //   finish();
-//                break;
-//            default:
-//                break;
-//        }
-//    }
 }
+
 

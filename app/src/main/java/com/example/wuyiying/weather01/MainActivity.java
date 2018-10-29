@@ -204,7 +204,7 @@ public class MainActivity extends Activity implements View.OnClickListener{
                         mHandler.sendMessage(msg);
 
                     }
-
+//                在获取网络数据后，调用解析函数
                     parseXML(responseStr);
                 }catch (Exception e){
                     e.printStackTrace();
@@ -217,8 +217,8 @@ public class MainActivity extends Activity implements View.OnClickListener{
         }).start();
     }
 
-
-
+//编写解析函数，解析出城市名称，更新时间信息
+//    将解析的数据存入TodayWeather对象中
     private TodayWeather parseXML(String xmldata) {
         TodayWeather todayWeather = null;
         int fengxiangCount=0;
@@ -305,7 +305,7 @@ public class MainActivity extends Activity implements View.OnClickListener{
                         break;
 
 
-// 判断当前事件是否为标签元素开始事件
+        // 判断当前事件是否为标签元素开始事件
                     case XmlPullParser.END_TAG:
                         break;
                 }
