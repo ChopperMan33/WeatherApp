@@ -55,7 +55,7 @@ public  class SelectCity extends AppCompatActivity implements View.OnClickListen
         AdapterView.OnItemClickListener itemClickListener = new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
-                int updateCityCode = Integer.parseInt(mCityList.get(position).getNumber());
+                updateCityCode = Integer.parseInt(mCityList.get(position).getNumber());
                 Log.d("update city code", Integer.toString(updateCityCode));
             }
         };
@@ -63,19 +63,32 @@ public  class SelectCity extends AppCompatActivity implements View.OnClickListen
         citylist.setOnItemClickListener(itemClickListener);
 
     }
-
     @Override
-    public void onClick(View v) {
-        switch (v.getId()) {
+    public void onClick(View v){
+        switch(v.getId()){
             case R.id.title_back:
-                Intent intent = new Intent(this,MainActivity.class);
-                intent.putExtra("cityCode",updateCityCode);
-                startActivity(intent);
-             //   finish();
+                Intent i = new Intent();
+                i.putExtra("cityCode",Integer.toString(updateCityCode));//"101160101" "101160101"
+                setResult(RESULT_OK, i);
+                finish();
                 break;
             default:
                 break;
         }
     }
+
+//    @Override
+//    public void onClick(View v) {
+//        switch (v.getId()) {
+//            case R.id.title_back:
+//                Intent intent = new Intent(this,MainActivity.class);
+//                intent.putExtra("cityCode","101010100");//updateCityCode
+//                startActivity(intent);
+//             //   finish();
+//                break;
+//            default:
+//                break;
+//        }
+//    }
 }
 
